@@ -1,5 +1,6 @@
 import wollok.game.*
 import consola.*
+import mundialito.*
 
 class Juego {
 	var property position = null
@@ -15,4 +16,12 @@ class Juego {
 	method image() = "juego" + color + ".png"
 	
 
+}
+
+object mundialito {
+	var property position
+	method image() = "mundial.png"
+	method iniciar() {
+		juego.configurar()
+	}
 }
