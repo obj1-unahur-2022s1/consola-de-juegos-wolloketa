@@ -59,15 +59,8 @@ object juego{
 		self.visuales().forEach({x=>game.addVisual(x)})
 	}
 	
-	/*
-	method salirCampeon(){
-		if(marcadorArg.cantidadDeGoles()==5){
-			game.addVisual(new Campeon(image=marcadorArg.imagenDelCampeon()))
-		}else if(marcadorBra.cantidadDeGoles()==5){
-			game.addVisual(new Campeon(image=marcadorBra.imagenDelCampeon()))
-		}
-	}
-	*/
+	
+
 	
 	method iniciarJuego(){
 		//Visuales

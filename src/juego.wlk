@@ -21,8 +21,19 @@ class Juego {
 object mundialito {
 	var property position
 	method image() = "mundial.png"
+	
+	
 	method iniciar() {
 		game.clear()
-		juego.configurar()
+		game.addVisual(fondo)
+		game.schedule(5000, {=> juego.configurar()}) 
+		
 	}
 }
+
+object fondo {
+	var property position = game.at(0,0)
+	method image() = "fondo1.png"
+}
+
+
