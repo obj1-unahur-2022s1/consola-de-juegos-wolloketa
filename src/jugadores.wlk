@@ -102,13 +102,13 @@ object pelota{
 	
 	method serPateadaPor(jugador){
 		if (jugador.ultimoMovimiento() == 1){
-			position = jugador.position().up(4)
+			position = game.at(jugador.position().x(),jugador.position().up(4).y().min(11)  )
 		}else if (jugador.ultimoMovimiento() == 2){
-			position = jugador.position().down(4)
+			position = game.at(jugador.position().x(),jugador.position().down(4).y().max(1)  )
 		}else if (jugador.ultimoMovimiento() == 3){
-			position = jugador.position().right(4)
-		}else if (jugador.ultimoMovimiento() == 4){
-			position = jugador.position().left(4)
+			position = game.at(jugador.position().right(4).x().min(16),jugador.position().y()  )
+		}else if (jugador.ultimoMovimiento() == 4 ){
+			position = game.at(jugador.position().left(4).x().max(0),jugador.position().y()  )
 		}
 	}
 	

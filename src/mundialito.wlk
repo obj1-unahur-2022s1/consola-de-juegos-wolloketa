@@ -1,10 +1,7 @@
 import wollok.game.*
 import jugadores.*
 
-object fondopr{
-	const property image = "ground.png"
-	const property position = game.at(0,0)
-}
+
 
 object juego{
 	const jugadorArg1= self.crearJugador("Arg1", game.at(10,2), argentino)
@@ -29,10 +26,11 @@ object juego{
 	
 	const property messi = new JugadorPrincipal (posicionInicial=game.at(9,6), image="messi_colo.png", nacionalidad = argentino)
 	const property neymar = new JugadorPrincipal (posicionInicial=game.at(7,6), image="neymar.png", nacionalidad = brasilero)
-	const property marcadorArg= new MarcadorDeGoles(position=game.at(0,11), nacionalidad= argentino)
-	const property marcadorBra= new MarcadorDeGoles(position=game.at(13,11), nacionalidad=brasilero)
+	const property marcadorArg= new MarcadorDeGoles(position=game.at(1,11), nacionalidad= argentino)
+	const property marcadorBra= new MarcadorDeGoles(position=game.at(12,11), nacionalidad=brasilero)
 	
-	const property visuales= [pelota, arcoBra, arcoBra2, arcoArg, arcoArg2, jugadorArg1, jugadorArg2,jugadorArg3, jugadorBra1,  jugadorBra2, jugadorBra3, messi, neymar, arquero1, arquero2, marcadorArg, marcadorBra]
+	
+	const property visuales= [pelota, arcoBra, arcoBra2, arcoArg, arcoArg2, jugadorArg1, jugadorArg2,jugadorArg3, jugadorBra1,  jugadorBra2, jugadorBra3, messi, neymar, arquero1, arquero2, marcadorArg, marcadorBra,banderaArg,banderaBra]
 	const visualesADesaparecer= [pelota, messi, neymar]
 	method crearJugador(nombre, position, nacionalidad){
 		return new JugadorGenerico(position= position, nacionalidad= nacionalidad)
@@ -43,7 +41,7 @@ object juego{
 		game.height(12)
 		game.width(17)
 		game.title("Mundialito 2022")
-		game.addVisual(fondopr)
+		game.addVisual(campoDeJuego)
 		
 		//Sonido
 		const hinchada = game.sound("AudioFondo.mp3")
@@ -99,4 +97,30 @@ object juego{
 		
 		//self.salirCampeon()
 		}
+}
+
+object campoDeJuego{
+	const property image = "ground.png"
+	const property position = game.at(0,0)
+	
+}
+
+object menu {
+	const property image = "LosdosDuros.png"
+	const property position = game.at(0,0)
+	method init(){
+		game.clear()
+	}
+}
+
+object banderaArg {
+	const property image = "banderaArg.png"
+	const property position = game.at(16,11)
+	method realizarAccionCon(pelota){}
+	
+}
+object banderaBra {
+	const property image = "banderaBra.png"
+	const property position = game.at(0,11)
+	method realizarAccionCon(pelota){}
 }
