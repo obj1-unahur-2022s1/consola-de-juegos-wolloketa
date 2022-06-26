@@ -205,12 +205,11 @@ class MarcadorDeGoles{
 		game.clear()
 		
 		game.addVisual(ganador)
-		const final = game.sound("auidoFInal.mp3")
-	   	final.shouldLoop(true)
-	   	game.schedule(500, { final.play()} )
-	   	
+		//const final = game.sound("auidoFInal.mp3")
+	   	//final.shouldLoop(true)
+	   //	game.schedule(500, { final.play()} )
 		game.addVisual(reiniciar)
-		game.schedule(14000, {=> game.stop() })
+		game.schedule(12000, {=> game.stop() })
 		keyboard.enter().onPressDo { reiniciar.accion() }
 		cantidadDeGoles = 0
 		pelota.reubicarse()
