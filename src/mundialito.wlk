@@ -104,15 +104,6 @@ object campoDeJuego{
 	const property position = game.at(0,0)
 	
 }
-
-object menu {
-	const property image = "LosdosDuros.png"
-	const property position = game.at(0,0)
-	method init(){
-		game.clear()
-	}
-}
-
 object banderaArg {
 	const property image = "banderaArg.png"
 	const property position = game.at(16,11)
