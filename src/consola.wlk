@@ -4,7 +4,7 @@ import juego.*
 object consola {
 
 	const juegos = [
-		new Juego(color = "Amarillo"),
+		mundialito,
 		new Juego(color = "Verde"),
 		new Juego(color = "Rojo"),
 		new Juego(color = "Azul"),
@@ -17,6 +17,7 @@ object consola {
 		game.height(12)
 		game.width(17)
 		game.title("Consola de juegos")
+		game.boardGround("fondomadera.jpg")
 	}
 	
 	method iniciar(){

@@ -1,6 +1,11 @@
 import wollok.game.*
 import jugadores.*
 
+object fondopr{
+	const property image = "ground.png"
+	const property position = game.at(0,0)
+}
+
 object juego{
 	const jugadorArg1= self.crearJugador("Arg1", game.at(10,2), argentino)
 	const jugadorArg2= self.crearJugador("Arg2", game.at(10,9), argentino)
@@ -34,12 +39,11 @@ object juego{
 	}
 	
  	method configurar(){
- 		game.clear()
 		//Tablero
 		game.height(12)
 		game.width(17)
 		game.title("Mundialito 2022")
-		game.boardGround("ground.png")
+		game.addVisual(fondopr)
 		
 		//Sonido
 		const hinchada = game.sound("AudioFondo.mp3")

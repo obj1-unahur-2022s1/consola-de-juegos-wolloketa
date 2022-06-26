@@ -22,6 +22,7 @@ object mundialito {
 	var property position
 	method image() = "mundial.png"
 	method iniciar() {
+		game.clear()
 		juego.configurar()
 	}
 }
