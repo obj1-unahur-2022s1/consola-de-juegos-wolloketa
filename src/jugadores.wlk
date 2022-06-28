@@ -3,10 +3,10 @@ import mundialito.*
 import juego.*
 
 class JugadorGenerico{
-	
 	const property image= if(nacionalidad== argentino) {"generico_arg.png"} else {"generico_bra.png"}
 	var property position
 	const property nacionalidad
+	
 	method pasar(pelota){
 		if(nacionalidad == argentino)
 		pelota.position(juego.messi().position())
@@ -17,7 +17,6 @@ class JugadorGenerico{
 	method realizarAccionCon(pelota){
 		self.pasar(pelota)
 	}
-	
 }
 
 class Arquero inherits JugadorGenerico{
@@ -30,7 +29,6 @@ class Arquero inherits JugadorGenerico{
 		else{
 			self.position(self.position().up(1))
 		}
-		
 	}
 	
 	method atajar(pelota){
@@ -136,7 +134,6 @@ object pelota{
 		juego.neymar().gritarGol()
 		juego.marcadorArg().agregarGol()
 		self.reubicarse()
-		juego.marcadorArg()
 		}
 	}
 	
@@ -158,7 +155,6 @@ object brasilero{}
 class Arco{
 	const property position
 	const property nacionalidad
-	
 	
 	method realizarAccionCon(pelota){
 		pelota.entrarAlArco(self)
@@ -184,13 +180,8 @@ class MarcadorDeGoles{
 			img= "goles4.png"
 		} else if(cantidadDeGoles== 5){
 			img= "goles5.png"
-			//const champion = game.sound("light-rain.mp3")
-			//champion.shouldLoop(true)
-			//game.schedule(500, {champion.play()})
-			
 		} return img	
 	}
-	
 	
 	method agregarGol(){
 		cantidadDeGoles++
@@ -203,11 +194,7 @@ class MarcadorDeGoles{
 	
 	method ganador (ganador){
 		game.clear()
-		
 		game.addVisual(ganador)
-		//const final = game.sound("auidoFInal.mp3")
-	   	//final.shouldLoop(true)
-	   //	game.schedule(500, { final.play()} )
 		game.addVisual(reiniciar)
 		game.schedule(12000, {=> game.stop() })
 		keyboard.enter().onPressDo { reiniciar.accion() }
@@ -232,9 +219,7 @@ object reiniciar {
 	method image() = "reiniciar.png"
 	method position() = game.center().up(3).left(6)
 	
-	//method text() = "Reiniciar!"
 	method accion(){
 		mundialito.iniciar()
-		
 	}
-	}
+}

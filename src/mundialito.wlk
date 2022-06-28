@@ -10,8 +10,6 @@ object juego{
 	const jugadorBra1= self.crearJugador("Bra1", game.at(6,2), brasilero)
 	const jugadorBra2= self.crearJugador("Bra2", game.at(6,9), brasilero)
 	const jugadorBra3= self.crearJugador("Bra3", game.at(4,6), brasilero)
-	const seleccionArgentina= [jugadorArg1, jugadorArg2,jugadorArg3]
-	const seleccionBrasil= [ jugadorBra1,  jugadorBra2,  jugadorBra3]
 	
 	const arquero1= new Arquero(position= game.at(15,6), nacionalidad= argentino)
 	const arquero2= new Arquero(position= game.at(1,6), nacionalidad= brasilero)
@@ -22,16 +20,22 @@ object juego{
 	const property arcoArg = new Arco(position=game.at(16,5), nacionalidad= argentino)
 	const arcoArg2 = new Arco(position=game.at(16,6), nacionalidad= argentino)
 	
-	const arcos = [arcoBra, arcoBra2, arcoArg, arcoArg2]
-	
 	const property messi = new JugadorPrincipal (posicionInicial=game.at(9,6), image="messi_colo.png", nacionalidad = argentino)
 	const property neymar = new JugadorPrincipal (posicionInicial=game.at(7,6), image="neymar.png", nacionalidad = brasilero)
 	const property marcadorArg= new MarcadorDeGoles(position=game.at(1,11), nacionalidad= argentino)
 	const property marcadorBra= new MarcadorDeGoles(position=game.at(12,11), nacionalidad=brasilero)
 	
+	const property visuales= [
+		pelota,
+		arcoBra, arcoBra2, arcoArg, arcoArg2, 
+		jugadorArg1, jugadorArg2,jugadorArg3, 
+		jugadorBra1,  jugadorBra2, jugadorBra3, 
+		messi, neymar, 
+		arquero1, arquero2, 
+		marcadorArg, marcadorBra,
+		banderaArg, banderaBra
+	]
 	
-	const property visuales= [pelota, arcoBra, arcoBra2, arcoArg, arcoArg2, jugadorArg1, jugadorArg2,jugadorArg3, jugadorBra1,  jugadorBra2, jugadorBra3, messi, neymar, arquero1, arquero2, marcadorArg, marcadorBra,banderaArg,banderaBra]
-	const visualesADesaparecer= [pelota, messi, neymar]
 	method crearJugador(nombre, position, nacionalidad){
 		return new JugadorGenerico(position= position, nacionalidad= nacionalidad)
 	}
@@ -59,9 +63,6 @@ object juego{
 		self.visuales().forEach({x=>game.addVisual(x)})
 	}
 	
-	
-
-	
 	method iniciarJuego(){
 		//Visuales
 		self.iniciarVisuales()
@@ -70,9 +71,10 @@ object juego{
 		game.onTick(1000, "el meneaito", { => 
 			arquero1.moverseOpuesto()
 			arquero2.moverseOpuesto()
-		})
+			}
+		)
 		
-		//Movimiento jugadores activo
+		//Movimiento jugadores
 		keyboard.w().onPressDo { messi.moverUnoArriba() }
 		keyboard.s().onPressDo { messi.moverUnoAbajo() }
 		keyboard.a().onPressDo { messi.moverUnoIzquierda() }
@@ -85,26 +87,25 @@ object juego{
 		keyboard.enter().onPressDo { neymar.patearPelota() }
 		
 		
-		game.whenCollideDo(pelota, { cosita => cosita.realizarAccionCon(pelota)
-		})
-		
-		//self.salirCampeon()
-		}
+		game.whenCollideDo(pelota, { cosita => cosita.realizarAccionCon(pelota) })
+	}
 }
 
 object campoDeJuego{
 	const property image = "ground.png"
 	const property position = game.at(0,0)
-	
 }
+
 object banderaArg {
 	const property image = "banderaArg.png"
 	const property position = game.at(16,11)
-	method realizarAccionCon(pelota){}
 	
+	method realizarAccionCon(pelota){}
 }
+
 object banderaBra {
 	const property image = "banderaBra.png"
 	const property position = game.at(0,11)
+	
 	method realizarAccionCon(pelota){}
 }
