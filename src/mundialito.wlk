@@ -1,5 +1,6 @@
 import wollok.game.*
 import jugadores.*
+import consola.*
 
 
 
@@ -89,6 +90,7 @@ object juego{
 		
 		game.whenCollideDo(pelota, { cosita => cosita.realizarAccionCon(pelota) })
 	}
+	
 }
 
 object campoDeJuego{

@@ -101,13 +101,13 @@ object pelota{
 	
 	method serPateadaPor(jugador){
 		if (jugador.ultimoMovimiento() == 1){
-			position = game.at(jugador.position().x(),jugador.position().up(4).y().min(11)  )
+			position = game.at(jugador.position().x(),jugador.position().up(1.randomUpTo(5)).y().min(11)  )
 		}else if (jugador.ultimoMovimiento() == 2){
-			position = game.at(jugador.position().x(),jugador.position().down(4).y().max(1)  )
+			position = game.at(jugador.position().x(),jugador.position().down(1.randomUpTo(5)).y().max(1)  )
 		}else if (jugador.ultimoMovimiento() == 3){
-			position = game.at(jugador.position().right(4).x().min(16),jugador.position().y()  )
+			position = game.at(jugador.position().right(1.randomUpTo(5)).x().min(16),jugador.position().y()  )
 		}else if (jugador.ultimoMovimiento() == 4 ){
-			position = game.at(jugador.position().left(4).x().max(0),jugador.position().y()  )
+			position = game.at(jugador.position().left(1.randomUpTo(5)).x().max(0),jugador.position().y()  )
 		}
 	}
 	
@@ -185,9 +185,9 @@ class MarcadorDeGoles{
 	
 	method agregarGol(){
 		cantidadDeGoles++
-		if(nacionalidad == argentino && cantidadDeGoles == 5){
+		if(nacionalidad == argentino && cantidadDeGoles == dificultad.cantidadDeGoles()){
 			self.ganador(campeonNeymar)
-		}else if(nacionalidad == brasilero && cantidadDeGoles == 5){
+		}else if(nacionalidad == brasilero && cantidadDeGoles == dificultad.cantidadDeGoles()){
 			self.ganador(campeonMessi)
 		}
 	}
@@ -222,4 +222,8 @@ object reiniciar {
 	method accion(){
 		mundialito.iniciar()
 	}
+}
+
+object dificultad{
+	var property cantidadDeGoles
 }
