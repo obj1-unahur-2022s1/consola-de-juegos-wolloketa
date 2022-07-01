@@ -93,7 +93,6 @@ class JugadorPrincipal {
 	}
 }
 
-
 object pelota{
 	const property image= "pelota.png"
 	const posicionInicial= game.at(8,6)
@@ -146,7 +145,6 @@ object pelota{
 		juego.neymar().volverAPosicionInicial()
 		juego.messi().volverAPosicionInicial()
 	}
-
 }
 
 object argentino{}

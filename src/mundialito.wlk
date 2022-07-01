@@ -69,7 +69,7 @@ object juego{
 		self.iniciarVisuales()
 		
 		//Movimiento arqueros
-		game.onTick(1000, "el meneaito", { => 
+		game.onTick(1000, "el meneaito pa", { => 
 			arquero1.moverseOpuesto()
 			arquero2.moverseOpuesto()
 			}
