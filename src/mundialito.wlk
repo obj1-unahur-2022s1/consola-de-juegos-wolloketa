@@ -69,7 +69,7 @@ object juego{
 		self.iniciarVisuales()
 		
 		//Movimiento arqueros
-		game.onTick(1000, "el meneaito pa", { => 
+		game.onTick(1000, "el meneaito", { => 
 			arquero1.moverseOpuesto()
 			arquero2.moverseOpuesto()
 			}
@@ -87,7 +87,7 @@ object juego{
 		keyboard.right().onPressDo { neymar.moverUnoDerecha() }
 		keyboard.enter().onPressDo { neymar.patearPelota() }
 		
-		
+		//Acciones con pelota
 		game.whenCollideDo(pelota, { cosita => cosita.realizarAccionCon(pelota) })
 	}
 	
@@ -102,12 +102,12 @@ object banderaArg {
 	const property image = "banderaArg.png"
 	const property position = game.at(16,11)
 	
-	method realizarAccionCon(pelota){}
+	method realizarAccionCon(pelota1){}
 }
 
 object banderaBra {
 	const property image = "banderaBra.png"
 	const property position = game.at(0,11)
 	
-	method realizarAccionCon(pelota){}
+	method realizarAccionCon(pelota1){}
 }

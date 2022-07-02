@@ -184,13 +184,13 @@ class MarcadorDeGoles{
 	method agregarGol(){
 		cantidadDeGoles++
 		if(nacionalidad == argentino && cantidadDeGoles == dificultad.cantidadDeGoles()){
-			self.ganador(campeonNeymar)
+			self.salirCampeon(campeonNeymar)
 		}else if(nacionalidad == brasilero && cantidadDeGoles == dificultad.cantidadDeGoles()){
-			self.ganador(campeonMessi)
+			self.salirCampeon(campeonMessi)
 		}
 	}
 	
-	method ganador (ganador){
+	method salirCampeon(ganador){
 		game.clear()
 		game.addVisual(ganador)
 		game.addVisual(reiniciar)

@@ -84,7 +84,8 @@ object seleccionNiveles{
 				self.seleccionar(dificil, medio, facil)
 			}
 		}
-		keyboard.space().onPressDo{
+		//Entrar
+		keyboard.i().onPressDo{
 			self.nivelSeleccionado().entrar()
 		}
 	}

@@ -24,6 +24,8 @@ Reciben un gol cuando la pelota pasa por una posición en la que ellos no están
 |FÁCIL| El juego se termina al realizar 1 gol.
 |MEDIO| El juego se termina al realizar 3 goles.
 |DIFÍCIL| El juego se termina al realizar 5 goles.
+|I| Selecciona el nivel.
+|Flechas| Cambian de nivel.
 
 
 ## MOVIMIENTOS MESSI
