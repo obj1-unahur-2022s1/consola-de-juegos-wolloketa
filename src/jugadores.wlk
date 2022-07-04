@@ -198,6 +198,7 @@ class MarcadorDeGoles{
 		keyboard.enter().onPressDo { reiniciar.accion() }
 		cantidadDeGoles = 0
 		pelota.reubicarse()
+		juego.hinchada().volume(0)
 	}
 	
 	method realizarAccionCon(pelota){}

@@ -25,7 +25,7 @@ object juego{
 	const property neymar = new JugadorPrincipal (posicionInicial=game.at(7,6), image="neymar.png", nacionalidad = brasilero)
 	const property marcadorArg= new MarcadorDeGoles(position=game.at(1,11), nacionalidad= argentino)
 	const property marcadorBra= new MarcadorDeGoles(position=game.at(12,11), nacionalidad=brasilero)
-	
+	const property hinchada = game.sound("AudioFondo.mp3")
 	const property visuales= [
 		pelota,
 		arcoBra, arcoBra2, arcoArg, arcoArg2, 
@@ -40,6 +40,9 @@ object juego{
 	method crearJugador(nombre, position, nacionalidad){
 		return new JugadorGenerico(position= position, nacionalidad= nacionalidad)
 	}
+	method initialize(){
+		hinchada.play()
+	}
 	
  	method configurar(){
 		//Tablero
@@ -49,12 +52,12 @@ object juego{
 		game.addVisual(campoDeJuego)
 		
 		//Sonido
-		const hinchada = game.sound("AudioFondo.mp3")
+		
 	    hinchada.shouldLoop(true)
 	    keyboard.plusKey().onPressDo({hinchada.volume(1)})
 		keyboard.minusKey().onPressDo({hinchada.volume(0.5)})
 		keyboard.slash().onPressDo({hinchada.volume(0)})
-	    game.schedule(500, { hinchada.play()} )
+	    hinchada.volume(1)
 	    
 	    //Agregar visuales y demás
 		self.iniciarJuego()
